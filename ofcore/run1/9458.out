@@ -1,0 +1,44 @@
+Note: The following floating-point exceptions are signalling: IEEE_DENORMAL
+  STATUS REPORT: 1
+   COMPLETED FACTORIZATION STEP           1  IN TIME   1.0669231414794922E-003    SECONDS
+  STATUS REPORT: 1
+   COMPLETED FACTORIZATION STEP           2  IN TIME   1.9001960754394531E-004    SECONDS
+  STATUS REPORT: 2
+  PROGRAM COMPLETED FORWARD REDUCTION AT TIME   8.3208084106445312E-005    SECONDS
+  STATUS REPORT: 2
+  PROGRAM COMPLETED BACK SOLLVE IN TIME   2.4890899658203125E-004    SECONDS
+ AVERAGE ABSOLUTE ERROR   3.50303075E-08   FOR BLOCK           1
+ AVERAGE ABSOLUTE ERROR   6.04475758E-08   FOR BLOCK           2
+ **************** PROBLEM PARAMETERS *****************
+ PROBLEM SIZE =          100    BLOCK SIZE          50
+ NUMBER OF RIGHT HAND SIDES          10
+ SUB-BLOCK SIZE          25
+ ---------------------------------------------------
+ *****************  PERFORMANCE TIME IN SECONDS *
+ total time   1.62506104E-03   seconds
+ factor time   1.28793716E-03   seconds
+ backsolve/FR time   2.48908997E-04   seconds
+ matmul time   4.31060791E-04   seconds
+ io time   7.48634338E-05   seconds
+ inverse time   1.95264816E-04   seconds
+ ---------------------------------------------------
+ lu diag. blk. time   4.01973724E-04   seconds
+ triangular solver time   4.25815582E-04   seconds
+ ---------------------------------------------------
+ *************  PERFORMANCE FIGURES FOR SOLVER *******
+ NUMBER OF MATRIX MULTIPLICATIONS   9.00000000    
+ NUMBER OF DISK READ/WRITES   10.0000000    
+ NUMBER OF FLOATING POINT OPERATIONS=    2746666.75    
+ ---------------------------------------------------
+ MFLOPS FOR FACTORING   2070.49438    
+ OVERALL MFLOPS    1690.19299    
+ MATRIX MUlTIPLY MFLOPS    5799.64600    
+ INVERSION MFLOPS    2560.62524    
+ DISK TRANSFER RATE   5343.06250      MBYTES/SEC
+ ---------------------------------------------------
+ TOTAL EXECUTION TIME   1.62506104E-03   seconds
+ TOTAL MATMUL TIME   4.31060791E-04   seconds
+ TOTAL I/O TIME   7.48634338E-05   seconds
+ TOTAL INVERSION TIME   1.95264816E-04   seconds
+ TOTAL FACTOR TIME   1.28793716E-03   seconds
+ TOTAL BACK SOLV / FORWARD REDU. TIME   2.48908997E-04   seconds

@@ -1,0 +1,76 @@
+gfortran -c -g -funderscoring main.f
+gfortran -c -g -funderscoring datagen.f
+gfortran -c -g -funderscoring ofsolve.f
+gfortran -c -g -funderscoring output.f
+gfortran -c -g -funderscoring io.f
+gfortran -c -g -funderscoring copyin.f
+gfortran -c -g -funderscoring copyout.f
+gfortran -c -g -funderscoring copy2in.f
+gfortran -c -g -funderscoring copy2out.f
+gfortran -c -g -funderscoring freduce.f
+gfortran -c -g -funderscoring putrhs.f
+gfortran -c -g -funderscoring getrhs.f
+gfortran -c -g -funderscoring tsolver.f
+gfortran -c -g -funderscoring ludiag.f
+gfortran -c -g -funderscoring inv.f
+gfortran -c -g -funderscoring y_matmul2.f
+gfortran -c -g -funderscoring y_matmul.f
+gcc -c -g c_io.c
+c_io.c:8:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ mpl_write_ (float* mat_adr, int* fd_ptr, int* offset_ptr, int* length_ptr)
+ ^
+c_io.c: In function ‘mpl_write_’:
+c_io.c:18:2: warning: implicit declaration of function ‘lseek’ [-Wimplicit-function-declaration]
+  lseek (fd, offset, SEEK_SET);
+  ^
+c_io.c:19:15: warning: implicit declaration of function ‘write’ [-Wimplicit-function-declaration]
+           if((write (fd, mat_adr, length)) < 0) {
+               ^
+c_io.c:21:17: warning: implicit declaration of function ‘exit’ [-Wimplicit-function-declaration]
+                 exit(1);}
+                 ^
+c_io.c:21:17: warning: incompatible implicit declaration of built-in function ‘exit’
+c_io.c:21:17: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c: At top level:
+c_io.c:24:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ mpl_open_ (fd1_ptr, fd2_ptr, fd3_ptr, fd4_ptr, fd5_ptr, fd6_ptr)
+ ^
+c_io.c: In function ‘mpl_open_’:
+c_io.c:53:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:53:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c:56:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:56:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c:59:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:59:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c:62:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:62:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c:65:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:65:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c:68:11: warning: incompatible implicit declaration of built-in function ‘exit’
+           exit(1);}
+           ^
+c_io.c:68:11: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+c_io.c: At top level:
+c_io.c:81:1: warning: return type defaults to ‘int’ [-Wimplicit-int]
+ mpl_read_ (float* mat_adr, int* fd_ptr, int* offset_ptr, int* length_ptr)
+ ^
+c_io.c: In function ‘mpl_read_’:
+c_io.c:92:15: warning: implicit declaration of function ‘read’ [-Wimplicit-function-declaration]
+           if((read (fd, mat_adr, length)) < 0) {
+               ^
+c_io.c:94:17: warning: incompatible implicit declaration of built-in function ‘exit’
+                 exit(1);}
+                 ^
+c_io.c:94:17: note: include ‘<stdlib.h>’ or provide a declaration of ‘exit’
+gcc -c -g seconds.c
+gfortran -g -funderscoring -o luc main.o datagen.o ofsolve.o output.o io.o copyin.o copyout.o copy2in.o copy2out.o freduce.o putrhs.o getrhs.o tsolver.o ludiag.o inv.o y_matmul2.o y_matmul.o c_io.o seconds.o ./lapack-3.8.0/liblapack.a ./lapack-3.8.0/librefblas.a

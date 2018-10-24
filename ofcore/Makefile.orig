@@ -1,0 +1,115 @@
+#
+#F90=ifort
+#F90=pgf90
+F90=ftn
+#CC=icc
+CC=cc
+#CC=pgcc
+#CFLAGS = -g
+CFLAGS = -O3 
+#CFLAGS = -Mprof=func -O3 -fastsse
+#CFLAGS = -g -Mprof=func
+#CFLAGS = -O3 -fastsse -Mprof=func
+
+#LDFLAGS = /opt/acml/3.0/pgi64/lib/libacml.a
+#LDFLAGS =  ./lapack/my_inv.a 
+
+LAdir        = /opt/intel/mkl/lib/intel64
+#LAlib        = -L$(LAdir) $(LAdir)/libmkl_intel_lp64.a $(LAdir)/libmkl_core.a $(LAdir)/libmkl_sequential.a
+#LAlib        = -L$(LAdir) $(LAdir)/libmkl_intel_lp64.so $(LAdir)/libmkl_core.so $(LAdir)/libmkl_sequential.so
+
+
+OBJS=	main.o datagen.o ofsolve.o output.o io.o copyin.o copyout.o\
+	copy2in.o copy2out.o\
+	freduce.o putrhs.o getrhs.o tsolver.o ludiag.o inv.o y_matmul2.o y_matmul.o c_io.o seconds.o
+
+SRC=	main.f datagen.f ofsolve.f output.f io.f copyin.f copyout.f\
+	copy2in.f copy2out.f\
+	freduce.f putrhs.f getrhs.f tsolver.f ludiag.f c_io.c inv.f y_matmul2.f	y_matmul.f c_io.c seconds.c 
+
+
+
+.c.o:
+	$(CC) -c $<
+
+.f.o:
+	$(F90) $(CFLAGS) $<
+
+luc:	$(OBJS)
+
+	$(F90) $(CFLAGS) -o luc $(OBJS) $(LAlib)
+
+
+main.o:		main.f
+	$(F90) -c $(CFLAGS) main.f
+
+datagen.o:	datagen.f
+	$(F90) -c $(CFLAGS) datagen.f
+
+y_matmul.o:	y_matmul.f
+	$(F90) -c $(CFLAGS) y_matmul.f
+
+y_matmul2.o:	y_matmul2.f
+	$(F90) -c $(CFLAGS) y_matmul2.f
+
+ofsolve.o:	ofsolve.f
+	$(F90) -c $(CFLAGS) ofsolve.f
+
+output.o:	output.f
+	$(F90) -c $(CFLAGS) output.f
+
+copyin.o:	copyin.f
+	$(F90) -c $(CFLAGS) copyin.f
+
+
+copyout.o:	copyout.f
+	$(F90) -c $(CFLAGS) copyout.f
+
+copy2in.o:	copy2in.f
+	$(F90) -c $(CFLAGS) copy2in.f
+
+
+copy2out.o:	copy2out.f
+	$(F90) -c $(CFLAGS) copy2out.f
+
+freduce.o:	freduce.f
+	$(F90) -c $(CFLAGS) freduce.f
+
+tsolver.o:	tsolver.f
+	$(F90) -c $(CFLAGS) tsolver.f
+
+ludiag.o:	ludiag.f
+	$(F90) -c $(CFLAGS) ludiag.f
+
+putrhs.o:	putrhs.f
+	$(F90) -c $(CFLAGS) putrhs.f
+
+getrhs.o:	getrhs.f
+	$(F90) -c $(CFLAGS) getrhs.f
+
+io.o:	io.f
+	$(F90) -c $(CFLAGS) io.f
+
+inv.o:	inv.f
+	$(F90) -c $(CFLAGS) inv.f
+
+c_io.o:	c_io.c
+	$(CC) -c -g c_io.c
+
+seconds.o:	seconds.c
+	$(CC) -c -g seconds.c
+
+#setfiles:
+
+#	ln -s /e0/ara.1
+#	ln -s /e1/aia.1
+#	ln -s /e2/arb.1
+#	ln -s /e3/aib.1
+#	ln -s /e4/rhsr.1
+#	ln -s /e4/rhsi.1
+
+clean:
+	rm -f $(OBJS) luc
+
+
+

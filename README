@@ -1,0 +1,17 @@
+10/24/2018
+-------------
+Created git repository git_ofcore
+
+Want to put my ofcore complex linear equation solver in there and see if I can learn all about git and git runner using my own git hub that I created.
+
+I then plan to move it to NMC git hub and repeat if psooible
+
+I then plan to instrument it with OSS, TAU, Caliper and use that to understand
+how to create instrumented images and then run nightly tests with TRAVIS or whatever we want to learn.
+
+Down the road I want to try using spack to build ofcore, OSS, TAU , Caliper and see if we can vary GNU to Intel compilers and different libraries such as MKL, netlib-blas.
+
+The try to introduce threading to measure OMP parallel efficiency.
+
+Then may be we can try integrate one of the ST packages VIZ+DATA reserach products.
+

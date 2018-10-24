@@ -1,0 +1,12 @@
+10/22/2018
+-----------
+Trying to learn git hub and put in it some significant example for build, run and test.
+Started with building 'ofcore' my out of core complex linear equation dense solver on my linux laptop Shakhti.
+
+This required installing netlib lapack from www.netlib.org/lapack and building it with gfortran on my laptop and testing a simple 100x100 matrix out of core solver on my laptop
+
+NOTE:  Link line should use the following two libraries I built with the linpack download:  librefblas.a liblapack.a
+in my directory /home/mrajan/lapack/lapack-3.8.0
+
+It is giving some warnings on build and on run "denormal' at some function that does not seem to impact the solution as the errors are of the order 10 to th -8 power.
+

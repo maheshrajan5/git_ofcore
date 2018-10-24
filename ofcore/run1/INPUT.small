@@ -1,0 +1,2 @@
+100 10 50 25
+      read (23,*),ncol,nrhs,isize,ib
